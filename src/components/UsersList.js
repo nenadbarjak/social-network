@@ -3,7 +3,7 @@ import users from '../data/data.json';
 
 const UsersList = () => {
     return (  
-        <div>
+        <div className='users-list'>
             {users.map(user => (
                 <Link to={`/user/${user.id}`} key={user.id} className='user-link'>
                     <div className='user-card'>

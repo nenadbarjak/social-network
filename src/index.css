@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+.users-list {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .user-link,
 .user-link:link,
 .user-link:active,
@@ -22,6 +29,7 @@ code {
 
 .user-card {
   border: 1px solid #000;
-  max-width: 500px;
+  width: 500px;
   margin-bottom: 20px;
+  padding: 0 20px;
 }
