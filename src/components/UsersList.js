@@ -1,17 +1,11 @@
-import { Link } from 'react-router-dom';
 import users from '../data/data.json';
+import UserCard from './UserCard';
 
 const UsersList = () => {
     return (  
-        <div className='users-list'>
+        <div className='d-flex flex-wrap justify-content-center px-sm-2'> 
             {users.map(user => (
-                <Link to={`/user/${user.id}`} key={user.id} className='user-link'>
-                    <div className='user-card'>
-                        <h2>{user.firstName} {user.surname}</h2>
-                        <h3>Age: {user.age}</h3>
-                    </div>
-                </Link>
-                
+                <UserCard user={user} key={user.id} />   
             ))}
         </div>
     );
