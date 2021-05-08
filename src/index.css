@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.user-link,
+.user-link:link,
+.user-link:active,
+.user-link:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.user-card {
+  border: 1px solid #000;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
