@@ -25,6 +25,10 @@ const User = () => {
                 users={friends} 
                 title='Your friends'    
             />
+            <UsersList 
+                users={friendsOfFriends} 
+                title="Friends of your friends"    
+            />
             {suggestedFriends.length > 0 &&
                 <UsersList 
                     users={suggestedFriends} 
