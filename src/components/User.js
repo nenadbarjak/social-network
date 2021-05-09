@@ -3,6 +3,7 @@ import users from '../data/data.json';
 import { getFriends, getFriendsOfFriends, getSuggestedFriends } from '../utils/users';
 import maleAvatar from '../img/male.png';
 import femaleAvatar from '../img/female.png';
+import UsersList from './UsersList';
 
 const User = () => {
     const {id} = useParams()
@@ -14,10 +15,22 @@ const User = () => {
 
     const imgSrc = selectedUser.gender === 'male' ? maleAvatar : femaleAvatar;
 
-    return (  
-        <div>
-            <h1>{selectedUser.firstName} {selectedUser.surname}</h1>
-            <img src={imgSrc} alt="avatar" />
+    return (
+        <div>  
+            <div className='d-flex flex-column align-items-center my-3'>
+                <h1>{selectedUser.firstName} {selectedUser.surname}</h1>
+                <img src={imgSrc} alt="avatar" style={{width: '250px'}} />
+            </div>
+            <UsersList 
+                users={friends} 
+                title='Your friends'    
+            />
+            {suggestedFriends.length > 0 &&
+                <UsersList 
+                    users={suggestedFriends} 
+                    title='Suggested friends'    
+                />
+            }           
         </div>
     );
 }
