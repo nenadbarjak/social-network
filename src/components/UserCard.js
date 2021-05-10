@@ -16,6 +16,9 @@ const UserCard = ({ user, cardIsLink }) => {
                     <Card.Text>Age: {user.age}</Card.Text>
                 }
             </Card.Body>
+            {user.mutualFriends &&
+                <Card.Footer className='user-card__mutual'>{user.mutualFriends.slice(0,2).join(' and ')} are mutual friends</Card.Footer>
+            }
         </Card>
     );
 }

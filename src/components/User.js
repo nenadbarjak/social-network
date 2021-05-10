@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import users from '../data/data.json';
-import { getFriends, getFriendsOfFriends, getSuggestedFriends } from '../utils/users';
+import { getFriends, getFriendsOfFriends, getSuggestedFriends, getMutualFriends } from '../utils/users';
 import maleAvatar from '../img/male.png';
 import femaleAvatar from '../img/female.png';
 import UsersList from './UsersList';
@@ -11,7 +11,22 @@ const User = () => {
 
     const friends = getFriends(users, selectedUser)
     const friendsOfFriends = getFriendsOfFriends(users, selectedUser)
-    const suggestedFriends = getSuggestedFriends(friendsOfFriends, selectedUser)
+    let suggestedFriends = getSuggestedFriends(friendsOfFriends, selectedUser)
+
+    if (suggestedFriends.length > 0) {
+        suggestedFriends = suggestedFriends.map(suggestedFriend => {
+            const mutualFriends = getMutualFriends(suggestedFriend.friends, selectedUser, users)
+            return {
+                id: suggestedFriend.id,
+                firstName: suggestedFriend.firstName,
+                surname: suggestedFriend.surname,
+                age: suggestedFriend.age,
+                gender: suggestedFriend.gender,
+                friends: suggestedFriend.friends,
+                mutualFriends
+            }
+        })
+    }
 
     const imgSrc = selectedUser.gender === 'male' ? maleAvatar : femaleAvatar;
 

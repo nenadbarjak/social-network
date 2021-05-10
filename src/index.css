@@ -29,3 +29,8 @@ code {
 .card__img {
   width: 100%;
 }
+
+.user-card__mutual {
+  font-size: 13px;
+  padding: 10px;
+}
